@@ -10,7 +10,7 @@
 
     直接用程序处理数据，每秒刷新一次，以十进制打印
 
-    ![show1](G:\png\show1.png)
+    ![show1](https://github.com/Sinbing/FS00210-recorder/blob/main/png/show1.png)
 
     
 
@@ -18,9 +18,9 @@
 
     可以将读取的数据以Excel输出，还能顺便画个图
 
-    ![excel1](G:\png\excel1.png)
+    ![excel1](https://github.com/Sinbing/FS00210-recorder/blob/main/png/excel1.png)
 
-    ![excel2](G:\png\excel2.png)
+    ![excel2](https://github.com/Sinbing/FS00210-recorder/blob/main/png/excel2.png)
 
 ## 用法
 
@@ -47,7 +47,7 @@ python FS00210-recorder.py
 
 ​		你只需输入 0/1 来确定你是否需要保存Excel文件。
 
-![Usage1](G:\png\Usage1.png)
+![Usage1](https://github.com/Sinbing/FS00210-recorder/blob/main/png/Usage1.png)
 
 ​		输入 0 - 传感器结果将直接输出在黑框框（终端）内
 
