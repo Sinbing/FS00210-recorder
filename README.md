@@ -26,7 +26,7 @@
 
 ### 	windows：
 
-​		windows下可以直接运行打包好的的exe程序，程序可以在releases中下载。
+​		windows下可以直接运行打包好的的exe程序，程序可以在[releases](https://github.com/Sinbing/FS00210-recorder/releases/tag/FS00210)中下载。
 
 ​		你也可以直接运行py程序，详见**Linux章节**（就在下一行）
 
