@@ -10,7 +10,7 @@
 
     直接监听串口数据，解析原始数据后以十进制显示
 
-    ![show2](https://github.com/Sinbing/FS00210-recorder/blob/main/png/Usage2.png)
+    ![show2](https://github.com/Sinbing/FS00210-recorder/blob/main/png/show2.png)
 
     
 
