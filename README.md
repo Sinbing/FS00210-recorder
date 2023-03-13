@@ -10,7 +10,7 @@
 
     直接用程序处理数据，每秒刷新一次，以十进制打印
 
-    ![show1](https://github.com/Sinbing/FS00210-recorder/blob/main/png/show1.png)
+    ![show1](G:\png\show1.png)
 
     
 
@@ -18,15 +18,15 @@
 
     可以将读取的数据以Excel输出，还能顺便画个图
 
-    ![excel1](https://github.com/Sinbing/FS00210-recorder/blob/main/png/excel1.png)
+    ![excel1](G:\png\excel1.png)
 
-    ![excel2](https://github.com/Sinbing/FS00210-recorder/blob/main/png/excel2.png)
+    ![excel2](G:\png\excel2.png)
 
 ## 用法
 
 ### 	windows：
 
-​		windows下可以直接运行打包好的的exe程序，程序可以在[releases](https://github.com/Sinbing/FS00210-recorder/releases/tag/FS00210)中下载。
+​		windows下可以直接运行打包好的的exe程序，程序可以在releases中下载。
 
 ​		你也可以直接运行py程序，详见**Linux章节**（就在下一行）
 
@@ -37,7 +37,9 @@
 ​		然后执行此命令以安装运行程序所需的包，安装完成后即可运行。
 
 ```
-pip install -r requirements.txt
+pip install serial
+pip install pyserial
+pip install openpyxl
 python FS00210-recorder.py
 ```
 
@@ -47,13 +49,24 @@ python FS00210-recorder.py
 
 ​		你只需输入 0/1 来确定你是否需要保存Excel文件。
 
-![Usage1](https://github.com/Sinbing/FS00210-recorder/blob/main/png/Usage1.png)
+![Usage1](G:\png\Usage1.png)
 
 ​		输入 0 - 传感器结果将直接输出在黑框框（终端）内
 
 ​		输入 1 - 传感器除了输出在终端内，还会保存一份Excel文件。
 
 ## 常见问题Q&A
+
+### 运行程序报错  AttributeError: module 'serial' has no attribute 'Serial'
+
+​		这是因为 pyserial 模块没有正确安装，我自己换了一台电脑就遇到了这个问题，不知道其他人会不会碰到。解决方法：运行以下命令重新安装该模块
+
+```
+pip uninstall pyserial
+pip install pyserial
+```
+
+
 
 ### 	运行程序后没任何输出
 
