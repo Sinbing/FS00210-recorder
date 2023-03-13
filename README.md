@@ -1,4 +1,4 @@
-## 给传感器用的数据解析器
+## 给FC00210传感器用的数据解析器
 
 我用的FS00210传感器+usb转TTLCP2102串口模块，理论上FS00210传感器都可以用
 
@@ -8,27 +8,28 @@
 
 1. ### 方便的查看数据
 
-    直接用程序处理数据，每秒刷新一次，以十进制打印
+    直接监听串口数据，解析原始数据后以十进制显示
 
-    ![show1](https://github.com/Sinbing/FS00210-recorder/blob/main/png/Usage1.png)
+    ![show2](https://github.com/Sinbing/FS00210-recorder/blob/main/png/Usage2.png)
 
     
 
-2. ### 输出Excel数据表
+2. ### 输出CVS数据表
 
-    可以将读取的数据以Excel输出，还能顺便画个图
+    老版本使用Excel输出，但发现关闭程序时有小概率损坏文件（半天白测）
 
-    ![excel1](https://github.com/Sinbing/FS00210-recorder/blob/main/png/excel1.png)
+    新版本使用CVS输出数据表，关闭程序时不会损坏文件（最多丢最后一次数据）
 
-    ![excel2](https://github.com/Sinbing/FS00210-recorder/blob/main/png/excel2.png)
+    ![cvs1](https://github.com/Sinbing/FS00210-recorder/blob/main/png/cvs1.png)
+    
 
-## 用法
+## 使用方法Usage:
 
 ### 	windows：
 
 ​		windows下可以直接运行打包好的的exe程序，程序可以在releases中下载。
 
-​		你也可以直接运行py程序，详见**Linux章节**（就在下一行）
+​		你也可以直接运行.py文件，详见**Linux章节**（就在下一行）
 
 ### 	Linux：
 
@@ -37,9 +38,10 @@
 ​		然后执行此命令以安装运行程序所需的包，安装完成后即可运行。
 
 ```
+# 安装程序所需运行库
 pip install serial
 pip install pyserial
-pip install openpyxl
+# 运行程序
 python FS00210-recorder.py
 ```
 
@@ -47,19 +49,27 @@ python FS00210-recorder.py
 
 ​		程序打开后是一个黑色框框，但不用担心！这不会让你输入任何指令。
 
-​		你只需输入 0/1 来确定你是否需要保存Excel文件。
+​		你只需输入 **0/1** 来确定你是否需要保存CVS数据表。
 
 ![Usage1](https://github.com/Sinbing/FS00210-recorder/blob/main/png/Usage1.png)
 
 ​		输入 0 - 传感器结果将直接输出在黑框框（终端）内
 
-​		输入 1 - 传感器除了输出在终端内，还会保存一份Excel文件。
+​		输入 1 - 传感器除了输出在终端内，还会保存一份CVS数据表。
+
+### 注意！
+
+​		如果你运行程序后刷屏报错 **“数据校验失败，弃用此次数据”** 请重新运行程序。程序以字节数切割传感器结果，如打开程序时传感器正在发送数据，会因为切割位置错误出现这个错误。
+
+![Error1](https://github.com/Sinbing/FS00210-recorder/blob/main/png/error1.png)
 
 ## 常见问题Q&A
 
 ### 运行程序报错  AttributeError: module 'serial' has no attribute 'Serial'
 
-​		这是因为 pyserial 模块没有正确安装，我自己换了一台电脑就遇到了这个问题，不知道其他人会不会碰到。解决方法：运行以下命令重新安装该模块
+​		这是因为 pyserial 模块没有正确安装，我自己换了一台电脑就遇到了这个问题，不知道其他人会不会碰到。我的环境是Python3.8.10 +serial==0.0.97 +pyserial==3.5，能正常运行。
+
+​		解决方法：运行以下命令重新安装该模块
 
 ```
 pip uninstall pyserial
