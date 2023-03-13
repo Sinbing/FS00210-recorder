@@ -30,7 +30,7 @@ def get_ports():
             return p.device
 
 
-def excel_write(excel_path: str, excel_name: str, excel_row, data_PM10: str, data_PM25: str, data_PM100: str):
+def excel_write(excel_path: str, excel_name: str, excel_row, data_PM100: str, data_PM25: str, data_PM10: str):
     # 尝试打开excel文件，若不存在则新建
     try:
         workbook = openpyxl.load_workbook(os.path.join(excel_path, excel_name))
@@ -99,9 +99,9 @@ if __name__ == '__main__':
 
                 # 校验数据头，防止数据错位
                 if data_line[:4] == '424d':
-                    PM10 = int(data_line[23:24], 16)
-                    PM25 = int(data_line[27:28], 16)
-                    PM100 = int(data_line[31:32], 16)
+                    PM10 = int(data_line[23:24], 16)    # 数据04 PM1.0 大气环境下 μg/m³
+                    PM25 = int(data_line[27:28], 16)    # 数据05 PM2.5 大气环境下 μg/m³
+                    PM100 = int(data_line[31:32], 16)   # 数据06 PM10 大气环境下 μg/m³
                     print(f'{datetime_now()}: PM10: {PM100} μg/m³ | PM2.5: {PM25} μg/m³ | PM1.0: {PM10} μg/m³')
                     if Excel_Output:
                         excel_write(progame_path, excel_name, excel_row, PM100, PM25, PM10)
